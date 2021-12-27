@@ -1,10 +1,11 @@
 
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import { useEffect, useState } from 'react';
 import Particles from 'react-tsparticles';
 import Loading from './Component/Loadding';
 import './Component/Loadding/style.scss'
+import './reposive.scss'
 function App() {
   useEffect(() => {
     let amount = 150
@@ -12,21 +13,21 @@ function App() {
     console.log(body);
     let i = 0
     console.log("123");
-    while (i < amount) {
-      let drop = document.createElement('i');
-      console.log(i);
-      let size = Math.random() * 5;
-      let posX = Math.floor(Math.random() * window.innerWidth)
-      let delay = Math.random() * -20
-      let duration = Math.random() * 5
+    // while (i < amount) {
+    //   let drop = document.createElement('i');
+    //   console.log(i);
+    //   let size = Math.random() * 5;
+    //   let posX = Math.floor(Math.random() * window.innerWidth)
+    //   let delay = Math.random() * -20
+    //   let duration = Math.random() * 5
 
-      drop.style.width = 0.2 + size + 'px'
-      drop.style.left = posX + 'px'
-      drop.style.animationDelay = delay + 's'
-      drop.style.animationDuration = 1 + duration + 's'
-      body.appendChild(drop)
-      i++
-    }
+    //   drop.style.width = 0.2 + size + 'px'
+    //   drop.style.left = posX + 'px'
+    //   drop.style.animationDelay = delay + 's'
+    //   drop.style.animationDuration = 1 + duration + 's'
+    //   body.appendChild(drop)
+    //   i++
+    // }
 
   }, [])
   return (
@@ -114,11 +115,14 @@ function App() {
           /> : <></>
         } */}
       </section>
-      <section className="section" name="section" >
-        <h1>Change / Modify</h1>
-
-        <h2>Three.js Objects</h2>
-        <h1>On scroll</h1>
+      <section className="section  w70" name="section" >
+        <div className='left'>
+          <h2 className='name my-4'>DIỆP VĨNH KIÊN</h2>
+          <h3 className='title split-text my-4'>Blockchain Developer</h3>
+          <p className='des my-4'>
+          Hi! I have worked through blockchain projects on crypto exchanges, forums with metamask integration. I use reactJS, nodeJS to build app
+          </p>
+        </div>
       </section>
       <section className="section">
         <h1>Rotate - Them</h1>
