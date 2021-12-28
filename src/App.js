@@ -1,10 +1,13 @@
 
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import { useEffect, useState } from 'react';
 import Particles from 'react-tsparticles';
 import Loading from './Component/Loadding';
 import './Component/Loadding/style.scss'
+import './reposive.scss'
+import './project.scss'
+import { initGsap } from './commons/gsap';
 function App() {
   useEffect(() => {
     let amount = 150
@@ -12,25 +15,84 @@ function App() {
     console.log(body);
     let i = 0
     console.log("123");
-    while (i < amount) {
-      let drop = document.createElement('i');
-      console.log(i);
-      let size = Math.random() * 5;
-      let posX = Math.floor(Math.random() * window.innerWidth)
-      let delay = Math.random() * -20
-      let duration = Math.random() * 5
+    // while (i < amount) {
+    //   let drop = document.createElement('i');
+    //   console.log(i);
+    //   let size = Math.random() * 5;
+    //   let posX = Math.floor(Math.random() * window.innerWidth)
+    //   let delay = Math.random() * -20
+    //   let duration = Math.random() * 5
 
-      drop.style.width = 0.2 + size + 'px'
-      drop.style.left = posX + 'px'
-      drop.style.animationDelay = delay + 's'
-      drop.style.animationDuration = 1 + duration + 's'
-      body.appendChild(drop)
-      i++
-    }
+    //   drop.style.width = 0.2 + size + 'px'
+    //   drop.style.left = posX + 'px'
+    //   drop.style.animationDelay = delay + 's'
+    //   drop.style.animationDuration = 1 + duration + 's'
+    //   body.appendChild(drop)
+    //   i++
+    // }
+    ///// gsap //// 
+    initGsap()
+  }, [])
+  useEffect(() => {
+    /////// hover image /// 
+    /* Store the element in el */
+    let el = document.getElementById('tilt')
 
+    /* Get the height and width of the element */
+    const height = el.clientHeight
+    const width = el.clientWidth
+
+    /*
+      * Add a listener for mousemove event
+      * Which will trigger function 'handleMove'
+      * On mousemove
+      */
+    // el.addEventListener('mousemove', handleMove)
+    /* Define function a */
+    // function handleMove(e) {
+
+    //   const xVal = e.layerX
+    //   const yVal = e.layerY
+    //   const yRotation = 20 * ((xVal - width / 2) / width)
+    //   const xRotation = -20 * ((yVal - height / 2) / height)
+    //   const string = 'perspective(500px) scale(1.1) rotateX(' + xRotation + 'deg) rotateY(' + yRotation + 'deg)'
+    //   el.style.transform = string
+    // }
+
+    // el.addEventListener('mouseout', function () {
+    //   el.style.transform = 'perspective(10px) scale(1) rotateX(0) rotateY(0)'
+    // })
+
+    // el.addEventListener('mousedown', function () {
+    //   el.style.transform = 'perspective(10px) scale(0.9) rotateX(0) rotateY(0)'
+    // })
+
+    // el.addEventListener('mouseup', function () {
+
+    //   el.style.transform = 'perspective(10px) scale(1.1) rotateX(0) rotateY(0)'
+    // }) 
   }, [])
   return (
     <div className="App">
+      <header>
+        <div className='nav_bar'>
+          <div className='nav_toggle' id="toggle">
+            <span className='bar1'></span>
+            <span className='bar2'></span>
+            <span className='bar3'></span>
+          </div>
+
+        </div>
+        <div className='nav_back'>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Service</a></li>
+            <li><a href="#">Service</a></li>
+            <li><a href="#">Service</a></li>
+            <li><a href="#">Service</a></li>
+          </ul>
+        </div>
+      </header>
       <section className='loading' id="bgthree">
         <Loading />
         {/* {flag ?
@@ -114,14 +176,36 @@ function App() {
           /> : <></>
         } */}
       </section>
-      <section className="section" name="section" >
-        <h1>Change / Modify</h1>
-
-        <h2>Three.js Objects</h2>
-        <h1>On scroll</h1>
+      <section className="section  w70" name="section" >
+        <div className='left'>
+          <h2 className='name my-4 fadeUp'>DIỆP VĨNH KIÊN</h2>
+          <h3 className='title split-text my-4 fadeUp'>Blockchain Developer</h3>
+          <p className='des my-4 fadeUp'>
+            Hi! I have worked through blockchain projects on crypto exchanges, forums with metamask integration. I use reactJS, nodeJS to build app
+          </p>
+          <div className='signature fadeUp'>
+            KienDiep
+          </div>
+        </div>
+        <div class="keyframes">
+          <p>Scroll down</p>
+          <div class="lineScrool">
+            <span></span>
+          </div>
+        </div>
       </section>
       <section className="section">
-        <h1>Rotate - Them</h1>
+        <div className="container">
+          <div className="project">
+            <div className='projectCaption'>
+              <h2 className='captionName'>Forum</h2>
+            </div>
+
+          </div>
+          <div className='image'>
+            <img id="tilt" alt="" />
+          </div>
+        </div>
       </section>
       <section className="section">
         <h1>Scale - Them</h1>
