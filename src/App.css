@@ -177,9 +177,9 @@ i:nth-child(3n+3){
 }
 @keyframes animate {
     0%{
-        transform: translateY(-100vh);
+        transform: translateY(-400px);
     }
     100%{
-        transform: translateY(100vh );
+        transform: translateY(300px );
     }
 }
