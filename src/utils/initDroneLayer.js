@@ -18,10 +18,10 @@ var mouse = new THREE.Vector2();
 var cameraCenter = new THREE.Vector3();
 //////////////////
 const loader = new GLTFLoader()
-init();
+// init();
 // animate
 const project = gsap.timeline();
-export function init() {
+ function init() {
 
     camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 1000);
     camera.position.z = 1;

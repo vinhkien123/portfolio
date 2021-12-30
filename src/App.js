@@ -8,13 +8,12 @@ import './Component/Loadding/style.scss'
 import './reposive.scss'
 import './project.scss'
 import { initGsap } from './commons/gsap';
+import Project from './Component/Loadding/Project';
 function App() {
   useEffect(() => {
     let amount = 150
     let body = document.getElementById('bgthree')
-    console.log(body);
     let i = 0
-    console.log("123");
     // while (i < amount) {
     //   let drop = document.createElement('i');
     //   console.log(i);
@@ -33,45 +32,7 @@ function App() {
     ///// gsap //// 
     initGsap()
   }, [])
-  useEffect(() => {
-    /////// hover image /// 
-    /* Store the element in el */
-    let el = document.getElementById('tilt')
-
-    /* Get the height and width of the element */
-    const height = el.clientHeight
-    const width = el.clientWidth
-
-    /*
-      * Add a listener for mousemove event
-      * Which will trigger function 'handleMove'
-      * On mousemove
-      */
-    // el.addEventListener('mousemove', handleMove)
-    /* Define function a */
-    // function handleMove(e) {
-
-    //   const xVal = e.layerX
-    //   const yVal = e.layerY
-    //   const yRotation = 20 * ((xVal - width / 2) / width)
-    //   const xRotation = -20 * ((yVal - height / 2) / height)
-    //   const string = 'perspective(500px) scale(1.1) rotateX(' + xRotation + 'deg) rotateY(' + yRotation + 'deg)'
-    //   el.style.transform = string
-    // }
-
-    // el.addEventListener('mouseout', function () {
-    //   el.style.transform = 'perspective(10px) scale(1) rotateX(0) rotateY(0)'
-    // })
-
-    // el.addEventListener('mousedown', function () {
-    //   el.style.transform = 'perspective(10px) scale(0.9) rotateX(0) rotateY(0)'
-    // })
-
-    // el.addEventListener('mouseup', function () {
-
-    //   el.style.transform = 'perspective(10px) scale(1.1) rotateX(0) rotateY(0)'
-    // }) 
-  }, [])
+  
   return (
     <div className="App">
       <header>
@@ -93,7 +54,7 @@ function App() {
           </ul>
         </div>
       </header>
-      <section className='loading' id="bgthree">
+      <section className='loadingg' id="bgthree">
         <Loading />
         {/* {flag ?
           <Particles
@@ -194,19 +155,8 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="section">
-        <div className="container">
-          <div className="project">
-            <div className='projectCaption'>
-              <h2 className='captionName'>Forum</h2>
-            </div>
-
-          </div>
-          <div className='image'>
-            <img id="tilt" alt="" />
-          </div>
-        </div>
-      </section>
+     <Project/>
+ 
       <section className="section">
         <h1>Scale - Them</h1>
       </section>

@@ -5,9 +5,8 @@ import gsap from "gsap";
 export function initGsap() {
     let toggle = document.getElementById('toggle')
     let bool = false;
-    let tl = gsap.timeline()
+         let tl = gsap.timeline()
     toggle.addEventListener('click', function () {
-        console.log("ok");
         if (!bool) {
             gsap.to('.bar1', {
                 duration: 0.2,
@@ -67,19 +66,19 @@ export function initGsap() {
                  left: "22%",
                  rotate: '0deg'
              })
-            tl.reverse()
-            // tl.to('li', {
-            //     duration: .7,
-            //     opacity: 0,
-            //     ease: 'power3.out',
-            //     stagger: .1
-            // })
-            // tl.to('.nav_back', {
-            //     duration: .5,
-            //     deley: .2,
-            //     width: '0px',
-            //     ease: 'power2.out'
-            // })
+            // tl.reverse()
+            tl.to('li', {
+                duration: .2,
+                opacity: 0,
+                ease: 'power3.out',
+                stagger: .1
+            })
+            tl.to('.nav_back', {
+                duration: .5,
+                deley: .2,
+                width: '0px',
+                ease: 'power2.out'
+            },)
             bool = false
         }
     })

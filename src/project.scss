@@ -1,39 +1,139 @@
-#tilt {
-  display: block;
-  height: 100%;
-  width: 100%;
-  max-width: 600px;
-  max-height: 300px;
-  background-color: grey;
-  transition: box-shadow 0.1s, transform 0.1s;
-  position: absolute;
-  top: 25%;
-//   left: 50%;
-//   transform: translate(-50%,-50%);
-  /*
-    * Adding image to the background
-    * No relation to the hover effect.
-    */
-  z-index: 99;
-  background-image: url(http://unsplash.it/300/200);
-  background-size: 100%;
-  background-repeat: no-repeat;
-}
+
 
 #tilt:hover {
   box-shadow: 0px 0px 30px rgba(0,0,0, 0.6);
   cursor: pointer;
 }
-.container {
-    .project{
+.section{
+  .containerz{
+    width: 100%; 
+    max-width: 1920px;
+    .projects__titletopz{
+        margin-bottom: var(--width);
+        margin-top: 100px;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 22px;
+        opacity:0
+    }
+    .projects__listz{
+      .projectz{
+         width:100vw; 
+         position: relative; 
+         max-width: var(--maxWidthProject) ;
+         padding-bottom: calc(100vw / 2 + 5%) ;
+         
+         margin: 0px 50px 0px;
+         .link{
+             position: absolute;
+             width: 100%;
+             height: 100%;
+         
+             max-height: 600px;
+             display: flex;
+            //  justify-content: center;
+             color: white;
+             text-transform : inherit;
+             .titl{
+                    background-image: url('https://www.nghiatran.info/projects/stylepnj/img1-stylepnj.jpg');
+                }
+             .project__captionz{
+                position: absolute;
+                z-index: 1; 
+                top: -50px;
+                mix-blend-mode: difference ;
+                
+              .project__caption-namez{
+                h3{
+                  font-family: g;
+                font-size: 80px;
+                margin: 0px 40px;
+                }
+              }
+              img { 
+                   width: 100%; 
+                   height: 100%; 
+                   position: absolute; 
+                   top: 50%; 
+                   left: 50%; 
+                   transform: translate(-50%,-50%)
+                }          
+             }
+         }
+      }
+    }
+  }
+}
+.container-fluid {
+  
+   .project{
         position: relative;
         width: 100%;
-        height: 100%;
-        .projectCaption{
-            position: absolute;
-            top: 13%;
-            z-index: 20;
-            // mix-blend-mode: difference;
-        }
+        height: 100vh;
+        // margin: 200px 0px;
+          .projectContainer{
+              // position: absolute;
+              // top: 50%;
+              // left: 50%;
+              // transform: translate(-50%,-50%);
+              width: 100%;
+              height: 100vh;
+            h3{
+              font-family: 'g';
+              color: white;
+              font-size: 80px;
+            }
+
+              // height: 100%;
+            .projectCaption{
+                  // position: absolute;
+                  mix-blend-mode: difference;
+                  // top: -60px;
+                  display: flex;
+                  justify-content: center;
+                  z-index: 20;
+                  width: 100%;
+                  // mix-blend-mode: difference;
+                      position: absolute;
+
+                   top:19%;
+                   left: -25%;
+    // transform: translate(-50%, -110%);
+              }
+              .img {
+                  padding-bottom: 15%;
+                  margin:0 10px;
+                  position: relative;
+                  overflow:hidden;
+                width: 100%;
+                height: 100vh;
+                    #tilt {
+                    //  max-width: 70%;
+                    //  max-height: 100%;
+                      display: block;
+                      height: 50%;
+                      width: 80%;
+                      object-fit:cover;
+                      background-color: grey;
+                      transition: box-shadow 0.1s, transform 0.1s;
+                      position: absolute;
+                      top:50%;
+                      left:50%;
+                      
+                      transform:translate(-50%,-50%);
+                  /*
+                    * Adding image to the background
+                    * No relation to the hover effect.
+                    */
+                      z-index: 19;
+                      background-image: url(https://www.nghiatran.info/projects/stylepnj/img1-stylepnj.jpg);
+                      background-size: 100%;
+                      background-repeat: no-repeat;
+                    }
+              }
+            
+      
+      }
     }
+    
 }
