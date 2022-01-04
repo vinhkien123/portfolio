@@ -7,8 +7,10 @@ import Loading from './Component/Loadding';
 import './Component/Loadding/style.scss'
 import './reposive.scss'
 import './project.scss'
+
 import { initGsap } from './commons/gsap';
 import Project from './Component/Loadding/Project';
+import { init } from './utils/initDroneLayer';
 function App() {
   useEffect(() => {
     let amount = 150
@@ -30,6 +32,7 @@ function App() {
     //   i++
     // }
     ///// gsap //// 
+    init()
     initGsap()
   }, [])
   

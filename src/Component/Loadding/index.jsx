@@ -6,7 +6,6 @@ import { init } from '../../utils/initDroneLayer'
 function Loading(props) {
     const [numberLoading, setNumberLoading] = useState(0)
     useEffect(() => {
-  
         const progressBar = document.getElementById('loa')
         const computedStyle = getComputedStyle(progressBar)
         let a = setInterval(() => {
@@ -17,8 +16,6 @@ function Loading(props) {
                 progressBar.style.setProperty('--width', width + .1)
             } else clearInterval(a)
         }, 0.75)
-        ///// BG /// 
-   
     }, [])
 
 

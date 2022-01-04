@@ -21,7 +21,7 @@ const loader = new GLTFLoader()
 // init();
 // animate
 const project = gsap.timeline();
- function init() {
+ export function init() {
 
     camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 1000);
     camera.position.z = 1;
@@ -40,7 +40,7 @@ const project = gsap.timeline();
         ///// reposive
 
         let xModelPosition, yModelPosition, modelScale
-        console.log(window.innerWidth);
+     
         if (window.innerWidth <= 375) {
             xModelPosition = 35
             yModelPosition = 85
@@ -62,7 +62,7 @@ const project = gsap.timeline();
         project.to(".loading", {
                 y: "-100%",
                 duration: 1,
-                delay: 3.5
+                delay:4
             })
 
             .to(camera.position, {
@@ -179,7 +179,7 @@ const project = gsap.timeline();
         function animate() {
             updateCamera();
             requestAnimationFrame(animate);
-            model.rotation.y += 0.05
+            // model.rotation.y += 0.05
             renderer.render(scene, camera);
         }
     })
@@ -205,7 +205,6 @@ const project = gsap.timeline();
     window.addEventListener('mousemove', (e) => {
         const x = e.clientX
         const y = e.clientY
-
         gsap.to(scene.rotation, {
             y: gsap.utils.mapRange(0, window.innerWidth, 1, -1, x),
             x: gsap.utils.mapRange(0, window.innerHeight, 1, -1, y),
