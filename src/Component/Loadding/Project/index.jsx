@@ -18,8 +18,8 @@ function checkElement(el) {
     } while (el != document.body)
     return true
 };
-function Project(props) {
-    const [animation,setAnimation] = useState(false)
+function Project({ title, align }) {
+    const [animation, setAnimation] = useState(false)
     useEffect(() => {
         /////// hover image /// 
         /* Store the element in el */
@@ -51,30 +51,33 @@ function Project(props) {
 
             el.style.transform = 'perspective(10px) scale(1.1) rotateX(0) rotateY(0) '
         })
-      
+
         // initGsapProject("avc")
     }, [])
-    console.log("123", animation);
+
     return (
-        <section className='section' id="avc" style={{ '--width': `${window.innerHeight / 100 * 5}px`, '--maxWidthProject': `${window.innerWidth >= 1100? '1000px' :  '80%'}` }}>
-            <div className="containerz">
-                <h3 className='projects__titletopz' >featured projects</h3>
-                <div className="projects__listz" style={{display:"flex",justifyContent:`start`}}>
-                    <div className="projectz">
-                        <a href="" className='link' style={{  justifyContent: `start` }}  >
-                            <div className="project__captionz">
-                                <div className="project__caption-namez" id="text"  >
-                                    {/* <Zoom cascade right when={animation}> */}
-                                        <h3>   Style By PNJ</h3>
-                                    {/* </Zoom> */}
+        <>
+            <section className='section' id="avc" style={{ '--width': `${window.innerHeight / 100 * 5}px`, '--maxWidthProject': `${window.innerWidth >= 1100 ? '1000px' : '80%'}` }}>
+                <div className="containerz">
+                    <h3 className='projects__titletopz' >featured projects</h3>
+                    <div className="projects__listz" style={{ display: "flex", justifyContent: `${align == 'left' ? `start` : `end`} ` }}>
+                        <div className="projectz">
+                            <a href="" className='link' style={{ justifyContent: `${align == 'left' ? `start` : `end`} `  }}  >
+                                <div className="project__captionz">
+                                    <div className="project__caption-namez" id="text"  >
+                                        {/* <Zoom cascade right when={animation}> */}
+                                        <h3>   {title}</h3>
+                                        {/* </Zoom> */}
+                                    </div>
                                 </div>
-                            </div>
-                            <img id='tilte' src="https://www.nghiatran.info/projects/stylepnj/img1-stylepnj.jpg" alt="" />
-                        </a>
+                                <img id='tilte' src="https://www.nghiatran.info/projects/stylepnj/img1-stylepnj.jpg" alt="" />
+                            </a>
+                        </div>
                     </div>
-                </div>
-            </div >
-        </ section>
+                </div >
+            </ section>
+
+        </>
     );
 }
 

@@ -1,4 +1,5 @@
 import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 
 
@@ -82,4 +83,18 @@ export function initGsap() {
             bool = false
         }
     })
+
+    // gsap.registerPlugin(ScrollTrigger)
+    // let scrollTrigger = gsap.utils.toArray('.scrollTrigger')
+    // gsap.to(scrollTrigger, {
+    //     xPercent: -100 * (scrollTrigger.length - 1),
+    //     ease: "none",
+    //     scrollTrigger: {
+    //         trigger: '.main',
+    //         pin: true,
+    //         scrub: 1,
+    //         snap: 1 / (scrollTrigger.length - 1),
+    //         end: () => "+=" + document.querySelector('.main')
+    //     }
+    // })
 }

@@ -21,7 +21,7 @@ const loader = new GLTFLoader()
 // init();
 // animate
 const project = gsap.timeline();
- export function init() {
+export function init() {
 
     camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 1000);
     camera.position.z = 1;
@@ -40,7 +40,7 @@ const project = gsap.timeline();
         ///// reposive
 
         let xModelPosition, yModelPosition, modelScale
-     
+
         if (window.innerWidth <= 375) {
             xModelPosition = 35
             yModelPosition = 85
@@ -60,36 +60,36 @@ const project = gsap.timeline();
         model.scale.set(0.3, 0.3, 0.3)
 
         project.to(".loading", {
-                y: "-100%",
-                duration: 1,
-                delay:4
-            })
+            y: "-100%",
+            duration: 1,
+            delay: 3.5
+        })
 
-            .to(camera.position, {
-                z: 150,
-                duration: 1,
-                ease: 'back.out(1.7)',
-                duration: 1,
-            })
-            .to(model.scale, {
-                duration: 1,
-                deley: 2,
-                x: modelScale,
-                y: modelScale,
-                z: modelScale,
-            }, "-=1")
-            .to(model.position, {
-                duration: 1,
-                deley: 2,
-                x: xModelPosition,
-                y: yModelPosition,
-            }, "-=1")
-            .to('.fadeUp', {
-                duration: 1.7,
-                opacity: 1,
-                ease: 'power3.out',
-                stagger: .1
-            })
+        // .to(camera.position, {
+        //         z: 150,
+        //         duration: 1,
+        //         ease: 'back.out(1.7)',
+        //         duration: 1,
+        //     })
+        //     .to(model.scale, {
+        //         duration: 1,
+        //         deley: 2,
+        //         x: modelScale,
+        //         y: modelScale,
+        //         z: modelScale,
+        //     }, "-=1")
+        //     .to(model.position, {
+        //         duration: 1,
+        //         deley: 2,
+        //         x: xModelPosition,
+        //         y: yModelPosition,
+        //     }, "-=1")
+        //     .to('.fadeUp', {
+        //         duration: 1.7,
+        //         opacity: 1,
+        //         ease: 'power3.out',
+        //         stagger: .1
+        //     })
         // .to(camera.rotation, {
         //     z: 0,
         //     duration: 1
@@ -137,25 +137,56 @@ const project = gsap.timeline();
             ease: 'back',
             delay: 0.3,
         })
-        // gsap.from('.fadeUp', {
-
-        //     scrollTrigger: {
-        //         trigger: sections[0],
-        //         toggleActions: 'none none none play'
-        //     },
-        //     duration: 1.7,
-        //     opacity: 1,
-        //     ease: 'power3.out',
-        //     stagger: .1,
-
-        // })
-        gsap.to(model.rotation, {
-            x: Math.PI * 2,
-            scrollTrigger: {
-                trigger: sections[1],
-                toggleActions: 'play pasue none none'
-            },
-        })
+        gsap.timeline({
+                scrollTrigger: {
+                    trigger: sections[0],
+                    toggleActions: "play none none reverse",
+                    start: "-=120%",
+                    end: "120%"
+                }
+            }).to(camera.position, {
+                z: 150,
+                duration: 1,
+                ease: 'back.out(1.7)',
+            })
+            .to(model.scale, {
+                // duration: 1,
+                deley: 2,
+                x: modelScale,
+                y: modelScale,
+                z: modelScale,
+            }, "-=1")
+            .to(model.position, {
+                // duration: 1,
+                deley: 2,
+                x: xModelPosition,
+                y: yModelPosition,
+            }, "-=1")
+            .from('.fadeUp', {
+                // duration: 0.6,
+                x: "-100%",
+                ease: 'power3.out',
+                stagger: .1
+            }, "-=1")
+        gsap.timeline({
+                scrollTrigger: {
+                    trigger: sections[1],
+                    toggleActions: "play none none reverse ",
+                    start: "-120%",
+                    end: "+=120%",
+                }
+            }).to(model.rotation, {
+                x: Math.PI * 2,
+            }).from('.projects__listz', {
+                x: "100%",
+                duration: 1,
+            }, "-=1")
+            .to(model.position, {
+                // duration: 1,
+                // deley: 2,
+                x: xModelPosition,
+                y: yModelPosition,
+            }, "-=1")
         gsap.to(model.scale, {
             x: 0.5,
             y: 0.5,
@@ -190,8 +221,12 @@ const project = gsap.timeline();
     renderer.setAnimationLoop(animation);
     renderer.setClearColor(`rgb(0 ,0, 0,1)`, 1)
     document.body.appendChild(renderer.domElement);
+    window.addEventListener('scroll', (e) => {
+        let lastKnownScrollPosition = window.scrollY;
+        // if (lastKnownScrollPosition > 100) renderer.setClearColor(`rgb(250 ,250, 250,1)`, 1)
+        // else renderer.setClearColor(`rgb(0 ,0, 0,1)`, 1)
+    })
     window.addEventListener('resize', () => {
-
         project.restart()
         camera.aspect = window.innerWidth / window.innerHeight
         camera.updateProjectionMatrix()

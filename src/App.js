@@ -10,8 +10,10 @@ import './project.scss'
 
 import { initGsap } from './commons/gsap';
 import Project from './Component/Loadding/Project';
+import Images from './Component/Images';
 import { init } from './utils/initDroneLayer';
 function App() {
+  const [hiden, setHiden] = useState(false)
   useEffect(() => {
     let amount = 150
     let body = document.getElementById('bgthree')
@@ -34,9 +36,20 @@ function App() {
     ///// gsap //// 
     init()
     initGsap()
+    window.addEventListener('scroll', (e) => {
+      // let lastKnownScrollPosition = window.scrollY;
+      // let lastKnownScrollPositiona = window.scrollX;
+      // console.log(lastKnownScrollPosition, lastKnownScrollPositiona)
+      // if (lastKnownScrollPosition) setHiden(true)
+      // if (lastKnownScrollPosition > 100) renderer.setClearColor(`rgb(250 ,250, 250,1)`, 1)
+      // else renderer.setClearColor(`rgb(0 ,0, 0,1)`, 1)
+    })
   }, [])
-  
+  function hidenImage(flag) {
+      setHiden(flag)
+  }
   return (
+
     <div className="App">
       <header>
         <div className='nav_bar'>
@@ -57,7 +70,7 @@ function App() {
           </ul>
         </div>
       </header>
-      <section className='loadingg' id="bgthree">
+      <section className='loading' id="bgthree">
         <Loading />
         {/* {flag ?
           <Particles
@@ -140,7 +153,9 @@ function App() {
           /> : <></>
         } */}
       </section>
-      <section className="section  w70" name="section" >
+      {/* images */}
+      {hiden ? <></> : <Images hidenImage={hidenImage} />}
+      <section className="section w70" name="section" >
         <div className='left'>
           <h2 className='name my-4 fadeUp'>DIỆP VĨNH KIÊN</h2>
           <h3 className='title split-text my-4 fadeUp'>Blockchain Developer</h3>
@@ -158,12 +173,14 @@ function App() {
           </div>
         </div>
       </section>
-     <Project/>
- 
-      <section className="section">
+
+      <Project title="text Title 321" align='left' />
+      <Project title="Project bos 321" align='right' />
+
+      <section className="section scrollTrigger">
         <h1>Scale - Them</h1>
       </section>
-      <section className="section">
+      <section className="section scrollTrigger">
         <h1>Do Whatever you want with them</h1>
         <h2>Three.js Tutorial</h2>
         <h1>GSAP + Scrolltrigger</h1>
