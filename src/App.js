@@ -174,17 +174,17 @@ function App() {
         </div>
       </section>
 
-      <Project title="text Title 321" align='left' />
-      <Project title="Project bos 321" align='right' />
+      <Project title="text Title 321" align='left' id={1} />
+      <Project title="Project bos 321" align='right' id={2} />
 
-      <section className="section scrollTrigger">
+      {/* <section className="section scrollTrigger">
         <h1>Scale - Them</h1>
       </section>
       <section className="section scrollTrigger">
         <h1>Do Whatever you want with them</h1>
         <h2>Three.js Tutorial</h2>
         <h1>GSAP + Scrolltrigger</h1>
-      </section>
+      </section> */}
 
     </div>
   );

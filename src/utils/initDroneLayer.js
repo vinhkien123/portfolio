@@ -177,16 +177,18 @@ export function init() {
                 }
             }).to(model.rotation, {
                 x: Math.PI * 2,
-            }).from('.projects__listz', {
-                x: "100%",
-                duration: 1,
-            }, "-=1")
+            })
             .to(model.position, {
                 // duration: 1,
                 // deley: 2,
                 x: xModelPosition,
                 y: yModelPosition,
             }, "-=1")
+        
+        // .from('.projects__listz', {
+        //     x: "100%",
+        //     duration: 1,
+        // }, "-=1")
         gsap.to(model.scale, {
             x: 0.5,
             y: 0.5,
@@ -210,7 +212,7 @@ export function init() {
         function animate() {
             updateCamera();
             requestAnimationFrame(animate);
-            // model.rotation.y += 0.05
+            model.rotation.y += 0.05
             renderer.render(scene, camera);
         }
     })

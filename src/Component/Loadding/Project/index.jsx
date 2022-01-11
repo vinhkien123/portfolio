@@ -18,7 +18,7 @@ function checkElement(el) {
     } while (el != document.body)
     return true
 };
-function Project({ title, align }) {
+function Project({ title, align ,id}) {
     const [animation, setAnimation] = useState(false)
     useEffect(() => {
         /////// hover image /// 
@@ -52,18 +52,18 @@ function Project({ title, align }) {
             el.style.transform = 'perspective(10px) scale(1.1) rotateX(0) rotateY(0) '
         })
 
-        // initGsapProject("avc")
+        initGsapProject(id, align)
     }, [])
 
     return (
         <>
-            <section className='section' id="avc" style={{ '--width': `${window.innerHeight / 100 * 5}px`, '--maxWidthProject': `${window.innerWidth >= 1100 ? '1000px' : '80%'}` }}>
+            <section className='section' style={{ '--width': `${window.innerHeight / 100 * 5}px`, '--maxWidthProject': `${window.innerWidth >= 1100 ? '1000px' : '80%'}` }}>
                 <div className="containerz">
                     <h3 className='projects__titletopz' >featured projects</h3>
-                    <div className="projects__listz" style={{ display: "flex", justifyContent: `${align == 'left' ? `start` : `end`} ` }}>
+                    <div className="projects__listz" id={id} style={{ display: "flex", justifyContent: `${align == 'left' ? `start` : `end`} ` }}>
                         <div className="projectz">
                             <a href="" className='link' style={{ justifyContent: `${align == 'left' ? `start` : `end`} `  }}  >
-                                <div className="project__captionz">
+                                <div className="project__captionz" >
                                     <div className="project__caption-namez" id="text"  >
                                         {/* <Zoom cascade right when={animation}> */}
                                         <h3>   {title}</h3>
